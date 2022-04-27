@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursinho de HTML</title>
+</head>
+
+<body>
+  <h1>TAREFAS</h1>
+  <main>
+    <div>
+      <h2>Lista</h2>
+      <input type="text" id="myInput" placeholder="Tarefa...">
+      <button onclick="newElement()">Adicionar</button>
+    </div>
+
+    <ul>
+      <li>Fazer café</li>
+      <li>Estudar</li>
+    </ul>
+
+  </main>
+
+  <script>
+    let task = ['Fazer café', 'Almoçar'];
+
+    const list = document.querySelector('ul');
+
+    function updateList() {
+      list.innerHTML = '';
+
+      for (let i = 0; i < task.length; i++) {
+        const li = document.createElement('li');
+        const t = document.createTextNode(task[i]);
+        li.appendChild(t);
+
+        list.appendChild(li);
+      }
+    }
+    updateList();
+
+    function newElement() {
+      const inputValue = document.getElementById('myInput').value;
+
+      if (inputValue === '') {
+        alert('Escreva alguma coisa!');
+      } else {
+        task.push(inputValue);
+        updateList();
+        document.getElementById('myInput').value = '';
+      }
+
+    }
+
+
+  </script>
+</body>
+
+</html>
